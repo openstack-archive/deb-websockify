@@ -1,0 +1,5 @@
+websockify (0.3.0-1) experimental; urgency=low
+
+  * Initial release. (Closes: #XXXXXX)
+
+ -- Thomas Goirand <zigo@debian.org>  Sat, 23 Feb 2013 01:22:51 +0800
