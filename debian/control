@@ -35,7 +35,7 @@ Description: WebSockets support for any application/server
  With HyBi clients, websockify negotiates whether to base64 encode traffic to
  and from the client via the subprotocol header (Sec-WebSocket-Protocol). The
  valid subprotocol values are 'binary' and 'base64' and if the client sends
- both then the server (the python implementation) will prefer 'binary'. The
+ both then the server (the Python implementation) will prefer 'binary'. The
  'binary' subprotocol indicates that the data will be sent raw using binary
  WebSocket frames. Some HyBi clients (such as the Flash fallback and older
  Chrome and iOS versions) do not support binary data which is why the
