@@ -15,6 +15,7 @@ Homepage: https://pypi.python.org/pypi/websockify
 
 Package: websockify
 Architecture: any
+Pre-Depends: dpkg (>= 1.15.6~)
 Depends: ${python:Depends}, ${misc:Depends}, python-numpy
 Description: WebSockets support for any application/server
  websockify was formerly named wsproxy and was part of the noVNC project.
