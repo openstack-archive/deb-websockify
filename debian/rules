@@ -17,3 +17,7 @@ override_dh_auto_install:
 override_dh_auto_clean:
 	make clean
 	python setup.py clean
+
+override_dh_compress:
+	dh_compress
+	rm $(CURDIR)/debian/websockify/usr/share/doc/websockify/LICENSE.txt
