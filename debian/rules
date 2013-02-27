@@ -1,7 +1,5 @@
 #!/usr/bin/make -f
 
-#export DH_VERBOSE=1
-
 UPSTREAM_GIT = git://github.com/kanaka/websockify.git
 
 include /usr/share/openstack-pkg-tools/pkgos.make
