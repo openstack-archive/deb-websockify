@@ -6,6 +6,7 @@ Files: debian/*
 Copyright: (c) 2012, Canonical Ltd
 	(c) 2013, Thomas Goirand <zigo@debian.org>
 License: GPL-2+
+
 Files: *
 Copyright: Ed Schouten <ed@80386.nl>
 	Algervivien <darthabel@kadmony>
