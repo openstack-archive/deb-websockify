@@ -1,4 +1,4 @@
-websockify (0.3.0-1) experimental; urgency=low
+websockify (0.3.0+dfsg1-1) experimental; urgency=low
 
   * Initial release. (Closes: #701822).
 
