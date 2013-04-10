@@ -1,7 +1,5 @@
 #!/usr/bin/make -f
 
-#export DH_VERBOSE=1
-
 UPSTREAM_GIT = git://github.com/kanaka/websockify.git
 
 include /usr/share/openstack-pkg-tools/pkgos.make
@@ -19,3 +17,7 @@ override_dh_auto_install:
 override_dh_auto_clean:
 	make clean
 	python setup.py clean
+
+override_dh_compress:
+	dh_compress
+	rm $(CURDIR)/debian/websockify/usr/share/doc/websockify/LICENSE.txt

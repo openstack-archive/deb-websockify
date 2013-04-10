@@ -12,6 +12,7 @@ Standards-Version: 3.9.4
 Vcs-Browser: http://anonscm.debian.org/gitweb/?p=openstack/websockify.git
 Vcs-Git: git://anonscm.debian.org/openstack/websockify.git
 Homepage: https://pypi.python.org/pypi/websockify
+Standards-Version: 3.9.4
 
 Package: websockify
 Architecture: any

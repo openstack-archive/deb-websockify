@@ -23,7 +23,28 @@ License: GPL-2+
  Public License version 2 can be found in "/usr/share/common-licenses/GPL-2".
 
 Files: *
-Copyright: 2012 Joel Martin
+Copyright: Ed Schouten <ed@80386.nl>
+	Algervivien <darthabel@kadmony>
+	Joel Martin <jmartin@sentryds.com>
+	Karim Allah Ahmed <kahmed@cloud9ers.com>
+	Chris Gordon <snorkeyg@gmail.com>
+	Vishvananda Ishaya <vishvananda@gmail.com>
+	Thomas Goirand <thomas@goirand.fr>
+	primalmotion <antoine.mercadal@inframonde.eu>
+	Kevin Chan <kevin@yinkei.com>
+	Cédric de Saint Martin <cedric.dsm@tiolive.com>
+	Aric Stewart <aric@codeweavers.com>
+	Amir Malik <amir@localhost>
+	Alexandre Sicard <alex@libricoleur.fr>
+	Vivien Alger <darthabel@kadmony>
+	Tomas Edwardsson <tommi@tommi.org>
+	mostafa sameh <msameh@cloud9ers.com>
+	Jodok Batlogg <jodok@batlogg.com>
+	Hector Sanjuan <hector@convivencial.org>
+	François Revol <revol@free.fr>
+	Daniel Shields <d4nshields@gmail.com>
+	Chris Custine <ccustine@apache.org>
+	Antoine Mercadal <antoine.mercadal@inframonde.eu>
 License: GPL-3
  Copyright (C) 2007 Free Software Foundation, Inc. <http://fsf.org/>
  Everyone is permitted to copy and distribute verbatim copies
