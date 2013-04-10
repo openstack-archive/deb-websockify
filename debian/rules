@@ -20,4 +20,3 @@ override_dh_auto_clean:
 
 override_dh_compress:
 	dh_compress
-	rm $(CURDIR)/debian/websockify/usr/share/doc/websockify/LICENSE.txt
