@@ -17,6 +17,8 @@ Package: websockify
 Architecture: any
 Pre-Depends: dpkg (>= 1.15.6~)
 Depends: ${shlibs:Depends}, ${python:Depends}, ${misc:Depends}, python-numpy
+Breaks: novnc (<< 0.4+dfsg+1-6)
+Replaces: novnc (<< 0.4+dfsg+1-6)
 Description: WebSockets support for any application/server
  websockify was formerly named wsproxy and was part of the noVNC project.
  .

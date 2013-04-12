@@ -1,3 +1,10 @@
+websockify (0.3.0+dfsg1-2) experimental; urgency=low
+
+  * Added Breaks: + Replaces: novnc (<< 0.4+dfsg+1-6) since websockify now
+    holds the /usr/bin/websockify and /usr/bin/rebind binaries.
+
+ -- Thomas Goirand <zigo@debian.org>  Fri, 12 Apr 2013 16:35:29 +0000
+
 websockify (0.3.0+dfsg1-1) experimental; urgency=low
 
   * Initial release. (Closes: #701822).
