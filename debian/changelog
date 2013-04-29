@@ -1,3 +1,10 @@
+websockify (0.3.0+dfsg1-3) experimental; urgency=low
+
+  * The breaks + replaces now include the novnc epoch (this was missing in
+    previous upload), thanks to Jeremy Bicha for reporting (Closes: #706357).
+
+ -- Thomas Goirand <zigo@debian.org>  Mon, 29 Apr 2013 18:08:34 +0800
+
 websockify (0.3.0+dfsg1-2) experimental; urgency=low
 
   * Added Breaks: + Replaces: novnc (<< 0.4+dfsg+1-6) since websockify now
