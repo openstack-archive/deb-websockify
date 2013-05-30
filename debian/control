@@ -7,7 +7,10 @@ Uploaders: Loic Dachary (OuoU) <loic@debian.org>,
            Thomas Goirand <zigo@debian.org>,
            Ghe Rivero <ghe.rivero@stackops.com>,
            Mehdi Abaakouk <sileht@sileht.net>
-Build-Depends: debhelper (>= 9), python-setuptools, python-dev (>= 2.6.6-3~), openstack-pkg-tools
+Build-Depends: debhelper (>= 9),
+               openstack-pkg-tools,
+               python-dev (>= 2.6.6-3~),
+               python-setuptools
 Standards-Version: 3.9.4
 Vcs-Browser: http://anonscm.debian.org/gitweb/?p=openstack/websockify.git
 Vcs-Git: git://anonscm.debian.org/openstack/websockify.git
@@ -16,7 +19,7 @@ Homepage: https://pypi.python.org/pypi/websockify
 Package: websockify
 Architecture: any
 Pre-Depends: dpkg (>= 1.15.6~)
-Depends: ${shlibs:Depends}, ${python:Depends}, ${misc:Depends}, python-numpy
+Depends: python-numpy, ${misc:Depends}, ${python:Depends}, ${shlibs:Depends}
 Breaks: novnc (<< 1:0.4+dfsg+1-6)
 Replaces: novnc (<< 1:0.4+dfsg+1-6)
 Description: WebSockets support for any application/server

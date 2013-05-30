@@ -1,5 +1,5 @@
-rebind.so usr/lib/websockify
-rebind.o usr/lib/websockify
 rebind usr/bin
+rebind.o usr/lib/websockify
+rebind.so usr/lib/websockify
 usr/bin/websockify
 usr/lib/python*/dist-packages/*
