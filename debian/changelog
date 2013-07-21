@@ -2,6 +2,8 @@ websockify (0.5.1+dfsg1-1) UNRELEASED; urgency=low
 
   * New upstream release.
   * Ran wrap-and-sort.
+  * Do not install include/web-socket-js/WebSocketMain.swf in setup.py
+    (patches setup.py).
 
  -- Thomas Goirand <zigo@debian.org>  Thu, 30 May 2013 16:00:31 +0800
 

@@ -1,0 +1,21 @@
+Description: Removes include/web-socket-js/WebSocketMain.swf from setup.py
+ Websockify is +dfsg because include/web-socket-js/WebSocketMain.swf isn't
+ built from source. So we also need to remove the WebSocketMain.swf file from
+ setup.py to avoid failure (eg: this file isn't there anymore in the dfsg
+ version of websockify).
+Author: Thomas Goirand <zigo@debian.org>
+Forwarded: not-needed
+Last-Update: 2013-07-21
+
+--- websockify-0.5.1+dfsg1.orig/setup.py
++++ websockify-0.5.1+dfsg1/setup.py
+@@ -17,8 +17,7 @@ setup(name=name,
+                        'include/base64.js',
+                        'include/websock.js']),
+                   ('share/websockify/include/web-socket-js',
+-                      ['include/web-socket-js/WebSocketMain.swf',
+-                       'include/web-socket-js/swfobject.js',
++                      ['include/web-socket-js/swfobject.js',
+                        'include/web-socket-js/web_socket.js'])],
+       keywords='noVNC websockify',
+       license='LGPLv3',
