@@ -1,5 +1,6 @@
-websockify (0.3.0+dfsg1-7) UNRELEASED; urgency=low
+websockify (0.5.1+dfsg1-1) UNRELEASED; urgency=low
 
+  * New upstream release.
   * Ran wrap-and-sort.
 
  -- Thomas Goirand <zigo@debian.org>  Thu, 30 May 2013 16:00:31 +0800
