@@ -1,4 +1,4 @@
-websockify (0.5.1+dfsg1-1) UNRELEASED; urgency=low
+websockify (0.5.1+dfsg1-1) unstable; urgency=low
 
   * New upstream release.
   * Ran wrap-and-sort.
