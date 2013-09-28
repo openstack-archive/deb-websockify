@@ -1,3 +1,9 @@
+websockify (0.5.1+dfsg1-2) unstable; urgency=low
+
+  * Added upstream patch to fix rebind.so not found (Closes: #719889).
+
+ -- Thomas Goirand <zigo@debian.org>  Sat, 28 Sep 2013 22:45:51 +0800
+
 websockify (0.5.1+dfsg1-1) unstable; urgency=low
 
   * New upstream release.
