@@ -1,0 +1,35 @@
+Description: Fixes rebind wrapper
+ The default upstream wrapper expects rebind.so to be next to the wrapper,
+ this is not Debian policy compliant, so we're just fixing the wrapper.
+Author: Philipp Hahn <hahn@univention.de>
+Bug-Debian: http://bugs.debian.org/726304
+Forwarded: no
+Last-Update: 2013-12-08
+
+--- websockify-0.5.1+dfsg1.orig/rebind
++++ websockify-0.5.1+dfsg1/rebind
+@@ -1,5 +1,9 @@
+ #!/usr/bin/env bash
+ 
++mydir="$(readlink -f "$(dirname "${0}")")"
++mylib="${mydir}/../lib/websockify/rebind.so"
++[ -e "${mylib}" ] || { echo "${mylib} not found" >&2; exit 1; }
++
+ usage() {
+     echo "Usage: $(basename $0) OLD_PORT NEW_PORT COMMAND_LINE"
+     echo
+@@ -9,10 +13,9 @@ usage() {
+ }
+ 
+ # Parameter defaults
+-mydir=$(readlink -f $(dirname ${0}))
+-
+-export REBIND_PORT_OLD="${1}"; shift
+-export REBIND_PORT_NEW="${1}"; shift
+ 
+-LD_PRELOAD=${mydir}/rebind.so "${@}"
++export REBIND_PORT_OLD="${1}"
++export REBIND_PORT_NEW="${2}"
++shift 2
+ 
++LD_PRELOAD="${mylib}" exec "${@}"
