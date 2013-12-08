@@ -2,6 +2,7 @@ websockify (0.5.1+dfsg1-3) unstable; urgency=low
 
   * Fixes the shell wrapper for rebind. Thanks to Philipp Hahn
     <hahn@univention.de> for reporting and his fix (Closes: #726304).
+  * Cleans correctly, and allow 2 builds in a raw.
 
  -- Thomas Goirand <zigo@debian.org>  Sun, 08 Dec 2013 06:20:11 +0000
 

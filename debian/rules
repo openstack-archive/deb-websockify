@@ -17,6 +17,7 @@ override_dh_auto_install:
 override_dh_auto_clean:
 	make clean
 	python setup.py clean
+	rm -rf build/ websockify.egg-info
 
 override_dh_compress:
 	dh_compress
