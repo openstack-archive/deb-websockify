@@ -8,6 +8,28 @@ to normal socket traffic. Websockify accepts the WebSockets handshake,
 parses it, and then begins forwarding traffic between the client and
 the target in both directions.
 
+### News/help/contact
+
+Notable commits, announcements and news are posted to
+<a href="http://www.twitter.com/noVNC">@noVNC</a>
+
+If you are a websockify developer/integrator/user (or want to be)
+please join the <a
+href="https://groups.google.com/forum/?fromgroups#!forum/novnc">noVNC/websockify
+discussion group</a>
+
+Bugs and feature requests can be submitted via [github
+issues](https://github.com/kanaka/websockify/issues).
+
+If you want to show appreciation for websockify you could donate to a great
+non-profits such as: [Compassion
+International](http://www.compassion.com/), [SIL](http://www.sil.org),
+[Habitat for Humanity](http://www.habitat.org), [Electronic Frontier
+Foundation](https://www.eff.org/), [Against Malaria
+Foundation](http://www.againstmalaria.com/), [Nothing But
+Nets](http://www.nothingbutnets.net/), etc. Please tweet <a
+href="http://www.twitter.com/noVNC">@noVNC</a> if you do.
+
 ### WebSockets binary data
 
 Starting with websockify 0.5.0, only the HyBi / IETF
@@ -116,7 +138,7 @@ new (moved) port of the program.
 The program wrap mode is invoked by replacing the target with `--`
 followed by the program command line to wrap.
 
-    `./websockify 2023 -- PROGRAM ARGS`
+    `./run 2023 -- PROGRAM ARGS`
 
 The `--wrap-mode` option can be used to indicate what action to take
 when the wrapped program exits or daemonizes.
@@ -125,16 +147,17 @@ Here is an example of using websockify to wrap the vncserver command
 (which backgrounds itself) for use with
 [noVNC](https://github.com/kanaka/noVNC):
 
-    `./websockify 5901 --wrap-mode=ignore -- vncserver -geometry 1024x768 :1`
+    `./run 5901 --wrap-mode=ignore -- vncserver -geometry 1024x768 :1`
 
-Here is an example of wrapping telnetd (from krb5-telnetd).telnetd
+Here is an example of wrapping telnetd (from krb5-telnetd). telnetd
 exits after the connection closes so the wrap mode is set to respawn
 the command:
 
-    `sudo ./websockify 2023 --wrap-mode=respawn -- telnetd -debug 2023`
+    `sudo ./run 2023 --wrap-mode=respawn -- telnetd -debug 2023`
 
 The `wstelnet.html` page demonstrates a simple WebSockets based telnet
-client.
+client (use 'localhost' and '2023' for the host and port
+respectively).
 
 
 ### Building the Python ssl module (for python 2.5 and older)
@@ -143,11 +166,10 @@ client.
 
     `sudo aptitude install python-dev bluetooth-dev`
 
-* Download, build the ssl module and symlink to it:
+* At the top level of the websockify repostory, download, build and
+  symlink the ssl module:
 
-    `cd websockify/`
-
-    `wget http://pypi.python.org/packages/source/s/ssl/ssl-1.15.tar.gz`
+    `wget --no-check-certificate http://pypi.python.org/packages/source/s/ssl/ssl-1.15.tar.gz`
 
     `tar xvzf ssl-1.15.tar.gz`
 
