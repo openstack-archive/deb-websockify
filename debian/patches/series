@@ -1,3 +1,2 @@
 removes-websocket-swf-file.patch
-fix-rebind.so-not-found-when-installed.patch
 fixes-rebind-wrapper.patch
