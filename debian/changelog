@@ -1,3 +1,9 @@
+websockify (0.6.0+dfsg1-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Thomas Goirand <zigo@debian.org>  Thu, 19 Jun 2014 20:17:08 +0800
+
 websockify (0.5.1+dfsg1-3) unstable; urgency=low
 
   * Fixes the shell wrapper for rebind. Thanks to Philipp Hahn
