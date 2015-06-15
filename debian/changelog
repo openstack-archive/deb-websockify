@@ -1,3 +1,9 @@
+websockify (0.6.1+dfsg1-1) unstable; urgency=medium
+
+  * New upstream release (LP: #1447675).
+
+ -- Thomas Goirand <zigo@debian.org>  Mon, 15 Jun 2015 18:04:28 +0200
+
 websockify (0.6.0+dfsg1-1) unstable; urgency=medium
 
   * New upstream release.
