@@ -1,7 +1,8 @@
 websockify (0.6.1+dfsg1-1) unstable; urgency=medium
 
   * New upstream release (LP: #1447675).
-  * Switching to gz compression.
+  * Switching to gz compression for the orig.tar.
+  * Added dh-python as build-depends.
 
  -- Thomas Goirand <zigo@debian.org>  Mon, 15 Jun 2015 18:04:28 +0200
 

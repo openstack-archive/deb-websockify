@@ -2,15 +2,12 @@ Source: websockify
 Section: python
 Priority: optional
 Maintainer: PKG OpenStack <openstack-devel@lists.alioth.debian.org>
-Uploaders: Loic Dachary (OuoU) <loic@debian.org>,
-           Julien Danjou <acid@debian.org>,
-           Thomas Goirand <zigo@debian.org>,
-           Ghe Rivero <ghe.rivero@stackops.com>,
-           Mehdi Abaakouk <sileht@sileht.net>
+Uploaders: Thomas Goirand <zigo@debian.org>,
 Build-Depends: debhelper (>= 9),
+               dh-python,
                openstack-pkg-tools,
-               python-dev (>= 2.6.6-3~),
-               python-setuptools
+               python-dev,
+               python-setuptools,
 Standards-Version: 3.9.5
 Vcs-Browser: http://anonscm.debian.org/gitweb/?p=openstack/websockify.git
 Vcs-Git: git://anonscm.debian.org/openstack/websockify.git
@@ -18,10 +15,12 @@ Homepage: https://pypi.python.org/pypi/websockify
 
 Package: websockify
 Architecture: any
-Pre-Depends: dpkg (>= 1.15.6~)
-Depends: python-numpy, ${misc:Depends}, ${python:Depends}, ${shlibs:Depends}
-Breaks: novnc (<< 1:0.4+dfsg+1-6)
-Replaces: novnc (<< 1:0.4+dfsg+1-6)
+Depends: python-numpy,
+         ${misc:Depends},
+         ${python:Depends},
+         ${shlibs:Depends},
+Breaks: novnc (<< 1:0.4+dfsg+1-6),
+Replaces: novnc (<< 1:0.4+dfsg+1-6),
 Description: WebSockets support for any application/server
  websockify was formerly named wsproxy and was part of the noVNC project.
  .
