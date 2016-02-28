@@ -9,8 +9,8 @@ Build-Depends: debhelper (>= 9),
                python-dev,
                python-setuptools,
 Standards-Version: 3.9.5
-Vcs-Browser: http://anonscm.debian.org/gitweb/?p=openstack/websockify.git
-Vcs-Git: git://anonscm.debian.org/openstack/websockify.git
+Vcs-Browser: https://anonscm.debian.org/cgit/openstack/websockify.git/
+Vcs-Git: https://anonscm.debian.org/git/openstack/websockify.git
 Homepage: https://pypi.python.org/pypi/websockify
 
 Package: websockify
