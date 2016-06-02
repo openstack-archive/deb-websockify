@@ -1,9 +1,13 @@
-websockify (0.6.1+dfsg1-2) UNRELEASED; urgency=medium
+websockify (0.8.0+dfsg1-1) experimental; urgency=medium
 
+  [ Ondřej Nový ]
   * Fixed VCS URLs (https).
   * d/rules: Changed UPSTREAM_GIT protocol to https
 
- -- Ondřej Nový <novy@ondrej.org>  Sun, 28 Feb 2016 15:58:59 +0100
+  [ Thomas Goirand ]
+  * New upstream release.
+
+ -- Thomas Goirand <zigo@debian.org>  Thu, 02 Jun 2016 16:00:26 +0200
 
 websockify (0.6.1+dfsg1-1) unstable; urgency=high
 
