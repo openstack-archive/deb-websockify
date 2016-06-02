@@ -6,6 +6,7 @@ websockify (0.8.0+dfsg1-1) experimental; urgency=medium
 
   [ Thomas Goirand ]
   * New upstream release.
+  * Fixed debian/copyright ordering.
 
  -- Thomas Goirand <zigo@debian.org>  Thu, 02 Jun 2016 16:00:26 +0200
 

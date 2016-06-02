@@ -2,11 +2,6 @@ Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: websockify
 Source: https://github.com/kanaka/websockify
 
-Files: debian/*
-Copyright: (c) 2012, Canonical Ltd
-	(c) 2013, Thomas Goirand <zigo@debian.org>
-License: GPL-2+
-
 Files: *
 Copyright: Ed Schouten <ed@80386.nl>
 	Algervivien <darthabel@kadmony>
@@ -52,6 +47,11 @@ License: BSD-2-clauses
 Files: other/kumina.c
 Copyright: (c) 2010, Joel Martin
 License: BSD-2-clauses
+
+Files: debian/*
+Copyright: (c) 2012, Canonical Ltd
+	(c) 2013, Thomas Goirand <zigo@debian.org>
+License: GPL-2+
 
 License: LGPL-2
  This library is free software; you can redistribute it and/or modify it under
