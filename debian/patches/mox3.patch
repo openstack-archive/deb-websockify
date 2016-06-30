@@ -3,10 +3,8 @@ Description: Switch test use to mox3, enabling py3 support
  Debian or Ubuntu have mox built for py3; switch all tests
  to the currently supported mox3 to enable testing across
  both targets.
- .
- This can be dropped if/when python3-mox exists.
 Author: James Page <james.page@ubuntu.com>
-Forwarded: not-required
+Forwarded: https://github.com/kanaka/websockify/pull/239
 
 --- a/tests/test_websocket.py
 +++ b/tests/test_websocket.py
