@@ -1,0 +1,32 @@
+Description: Switch test use to mox3, enabling py3 support
+ Upstream use mox for py2 and py3 testing, however neither
+ Debian or Ubuntu have mox built for py3; switch all tests
+ to the currently supported mox3 to enable testing across
+ both targets.
+ .
+ This can be dropped if/when python3-mox exists.
+Author: James Page <james.page@ubuntu.com>
+Forwarded: not-required
+
+--- a/tests/test_websocket.py
++++ b/tests/test_websocket.py
+@@ -22,7 +22,7 @@ import select
+ import shutil
+ import socket
+ import ssl
+-import stubout
++from mox3 import stubout
+ import sys
+ import tempfile
+ import unittest
+--- a/tests/test_websocketproxy.py
++++ b/tests/test_websocketproxy.py
+@@ -20,7 +20,7 @@ import unittest
+ import unittest
+ import socket
+ 
+-import stubout
++from mox3 import stubout
+ 
+ from websockify import websocket
+ from websockify import websocketproxy

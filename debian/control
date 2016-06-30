@@ -7,15 +7,126 @@ Build-Depends: debhelper (>= 9),
                dh-python,
                openstack-pkg-tools,
                python-dev,
+               python-mox3,
+               python-nose,
+               python-numpy,
                python-setuptools,
+               python3-dev,
+               python3-mox3,
+               python3-nose,
+               python3-numpy,
+               python3-setuptools,
 Standards-Version: 3.9.8
 Vcs-Browser: https://anonscm.debian.org/cgit/openstack/websockify.git/
 Vcs-Git: https://anonscm.debian.org/git/openstack/websockify.git
 Homepage: https://pypi.python.org/pypi/websockify
 
+Package: websockify-common
+Architecture: all
+Depends: ${misc:Depends},
+Breaks: websockify (<< 0.8.0+dfsg1-2~),
+Replaces: websockify (<< 0.8.0+dfsg1-2~),
+Description: WebSockets support for any application/server - shared files
+ websockify was formerly named wsproxy and was part of the noVNC project.
+ .
+ At the most basic level, websockify just translates WebSockets traffic to
+ normal socket traffic. Websockify accepts the WebSockets handshake, parses it,
+ and then begins forwarding traffic between the client and the target in both
+ directions.
+ .
+ Websockify supports all versions of the WebSockets protocol (Hixie and HyBi).
+ The older Hixie versions of the protocol only support UTF-8 text payloads. In
+ order to transport binary data over UTF-8 an encoding must used to encapsulate
+ the data within UTF-8.
+ .
+ With Hixie clients, Websockify uses base64 to encode all traffic to and from
+ the client. This does not affect the data between websockify and the server.
+ .
+ With HyBi clients, websockify negotiates whether to base64 encode traffic to
+ and from the client via the subprotocol header (Sec-WebSocket-Protocol). The
+ valid subprotocol values are 'binary' and 'base64' and if the client sends
+ both then the server (the Python implementation) will prefer 'binary'. The
+ 'binary' subprotocol indicates that the data will be sent raw using binary
+ WebSocket frames. Some HyBi clients (such as the Flash fallback and older
+ Chrome and iOS versions) do not support binary data which is why the
+ negotiation is necessary.
+ .
+ This package provides common files for Python 2 and 3 modules.
+
+Package: python-websockify
+Architecture: any
+Depends: python-numpy,
+         websockify-common (= ${source:Version}),
+         ${misc:Depends},
+         ${python:Depends},
+         ${shlibs:Depends},
+Breaks: websockify (<< 0.8.0+dfsg1-2~),
+Replaces: websockify (<< 0.8.0+dfsg1-2~),
+Description: WebSockets support for any application/server - Python 2
+ websockify was formerly named wsproxy and was part of the noVNC project.
+ .
+ At the most basic level, websockify just translates WebSockets traffic to
+ normal socket traffic. Websockify accepts the WebSockets handshake, parses it,
+ and then begins forwarding traffic between the client and the target in both
+ directions.
+ .
+ Websockify supports all versions of the WebSockets protocol (Hixie and HyBi).
+ The older Hixie versions of the protocol only support UTF-8 text payloads. In
+ order to transport binary data over UTF-8 an encoding must used to encapsulate
+ the data within UTF-8.
+ .
+ With Hixie clients, Websockify uses base64 to encode all traffic to and from
+ the client. This does not affect the data between websockify and the server.
+ .
+ With HyBi clients, websockify negotiates whether to base64 encode traffic to
+ and from the client via the subprotocol header (Sec-WebSocket-Protocol). The
+ valid subprotocol values are 'binary' and 'base64' and if the client sends
+ both then the server (the Python implementation) will prefer 'binary'. The
+ 'binary' subprotocol indicates that the data will be sent raw using binary
+ WebSocket frames. Some HyBi clients (such as the Flash fallback and older
+ Chrome and iOS versions) do not support binary data which is why the
+ negotiation is necessary.
+ .
+ This package provides the Python 2 module.
+
+Package: python3-websockify
+Architecture: any
+Depends: python3-numpy,
+         websockify-common (= ${source:Version}),
+         ${misc:Depends},
+         ${python3:Depends},
+         ${shlibs:Depends},
+Description: WebSockets support for any application/server - Python 3
+ websockify was formerly named wsproxy and was part of the noVNC project.
+ .
+ At the most basic level, websockify just translates WebSockets traffic to
+ normal socket traffic. Websockify accepts the WebSockets handshake, parses it,
+ and then begins forwarding traffic between the client and the target in both
+ directions.
+ .
+ Websockify supports all versions of the WebSockets protocol (Hixie and HyBi).
+ The older Hixie versions of the protocol only support UTF-8 text payloads. In
+ order to transport binary data over UTF-8 an encoding must used to encapsulate
+ the data within UTF-8.
+ .
+ With Hixie clients, Websockify uses base64 to encode all traffic to and from
+ the client. This does not affect the data between websockify and the server.
+ .
+ With HyBi clients, websockify negotiates whether to base64 encode traffic to
+ and from the client via the subprotocol header (Sec-WebSocket-Protocol). The
+ valid subprotocol values are 'binary' and 'base64' and if the client sends
+ both then the server (the Python implementation) will prefer 'binary'. The
+ 'binary' subprotocol indicates that the data will be sent raw using binary
+ WebSocket frames. Some HyBi clients (such as the Flash fallback and older
+ Chrome and iOS versions) do not support binary data which is why the
+ negotiation is necessary.
+ .
+ This package provides the Python 3 module.
+
 Package: websockify
 Architecture: any
 Depends: python-numpy,
+         python-websockify (>= ${source:Version}) | python3-websockify (>= ${source:Version}),
          ${misc:Depends},
          ${python:Depends},
          ${shlibs:Depends},

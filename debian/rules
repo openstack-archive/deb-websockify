@@ -5,19 +5,30 @@ UPSTREAM_GIT := https://github.com/kanaka/websockify.git
 include /usr/share/openstack-pkg-tools/pkgos.make
 
 %:
-	dh $@  --with python2
+	dh $@  --with python2,python3
 
 override_dh_auto_build:
 	make rebind.so
 	python setup.py build
+	python3 setup.py build
 
 override_dh_auto_install:
-	python setup.py install  -O1 --skip-build --root=$(CURDIR)/debian/tmp --install-layout=deb
+	dh_auto_install
+	python setup.py install  -O1 --skip-build --root=$(CURDIR)/debian/python-websockify --install-layout=deb
+	python3 setup.py install  -O1 --skip-build --root=$(CURDIR)/debian/python3-websockify --install-layout=deb
+	mv $(CURDIR)/debian/python-websockify/usr/bin/websockify $(CURDIR)/debian/python-websockify/usr/bin/python2-websockify
+	mv $(CURDIR)/debian/python3-websockify/usr/bin/websockify $(CURDIR)/debian/python3-websockify/usr/bin/python3-websockify
+	mkdir -p $(CURDIR)/debian/websockify-common/usr/share
+	mv $(CURDIR)/debian/python-websockify/usr/share/websockify $(CURDIR)/debian/websockify-common/usr/share
+	rm -rf $(CURDIR)/debian/python3-websockify/usr/share/websockify
 
 override_dh_auto_clean:
-	make clean
+	dh_auto_clean
 	python setup.py clean
+	python3 setup.py clean
 	rm -rf build/ websockify.egg-info
+	find $(CWD) -name "*.pyc" -delete
 
-override_dh_compress:
-	dh_compress
+override_dh_auto_test:
+	PYTHONPATH=$(CWD) python setup.py nosetests --verbosity=3
+	PYTHONPATH=$(CWD) python3 setup.py nosetests --verbosity=3

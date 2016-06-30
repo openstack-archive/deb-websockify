@@ -1,0 +1,11 @@
+#!/bin/sh
+
+set -e
+
+if [ "$1" = "remove" ] ; then
+	update-alternatives --remove websockify /usr/bin/python2-websockify
+fi
+
+#DEBHELPER#
+
+exit 0
