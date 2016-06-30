@@ -1,9 +1,8 @@
-websockify (0.8.0+dfsg1-2) UNRELEASED; urgency=medium
+websockify (0.8.0+dfsg1-2) experimental; urgency=medium
 
   * Add support for Python 3:
     - d/control: Add websockify-common, python{3}-websockify packages,
       amend dependencies and deal with upgrades.
-    - d/rules: Build and test for Python 2 and 3.
     - d/rules,*.{prerm,postinst}: Tweak install of websockify binary
       for alternative use.
   * Enable unit test execution:
@@ -11,7 +10,7 @@ websockify (0.8.0+dfsg1-2) UNRELEASED; urgency=medium
     - d/p/mox3.patch: Update to use mox3 for py2 and py3.
     - d/rules: Execute unit tests for python 2 and 3.
 
- -- James Page <james.page@ubuntu.com>  Fri, 24 Jun 2016 10:36:11 +0100
+ -- James Page <james.page@ubuntu.com>  Thu, 30 Jun 2016 09:51:15 +0100
 
 websockify (0.8.0+dfsg1-1) experimental; urgency=medium
 
