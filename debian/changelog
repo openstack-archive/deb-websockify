@@ -1,3 +1,9 @@
+websockify (0.8.0+dfsg1-3) unstable; urgency=medium
+
+  * Uploading to unstable.
+
+ -- Thomas Goirand <zigo@debian.org>  Tue, 04 Oct 2016 15:34:15 +0200
+
 websockify (0.8.0+dfsg1-2) experimental; urgency=medium
 
   * Add support for Python 3:
