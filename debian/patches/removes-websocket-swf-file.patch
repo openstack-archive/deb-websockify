@@ -7,9 +7,11 @@ Author: Thomas Goirand <zigo@debian.org>
 Forwarded: not-needed
 Last-Update: 2013-07-21
 
---- websockify-0.5.1+dfsg1.orig/setup.py
-+++ websockify-0.5.1+dfsg1/setup.py
-@@ -17,8 +17,7 @@ setup(name=name,
+Index: deb-websockify/setup.py
+===================================================================
+--- deb-websockify.orig/setup.py
++++ deb-websockify/setup.py
+@@ -23,8 +23,7 @@ setup(name=name,
                         'include/base64.js',
                         'include/websock.js']),
                    ('share/websockify/include/web-socket-js',
