@@ -1,0 +1,48 @@
+Description: TCP_KEEPCNT not available in non-linux platforms
+Author: Thomas Goirand <zigo@debian.org>
+Bug-Debian: https://bugs.debian.org/840035
+Forwarded: no
+Last-Update: 2016-10-10
+
+--- websockify-0.8.0+dfsg1.orig/websockify/websocket.py
++++ websockify-0.8.0+dfsg1/websockify/websocket.py
+@@ -723,8 +723,11 @@ class WebSocketServer(object):
+             if  tcp_keepalive:
+                 sock.setsockopt(socket.SOL_SOCKET, socket.SO_KEEPALIVE, 1)
+                 if tcp_keepcnt:
+-                    sock.setsockopt(socket.SOL_TCP, socket.TCP_KEEPCNT,
+-                                    tcp_keepcnt)
++                    if hasattr(socket, 'TCP_KEEPCNT'):
++                        sock.setsockopt(socket.SOL_TCP, socket.TCP_KEEPCNT,
++                                        tcp_keepcnt)
++                    else:
++                        self.msg('tcp_keepcnt not available on your system')
+                 if tcp_keepidle:
+                     sock.setsockopt(socket.SOL_TCP, socket.TCP_KEEPIDLE,
+                                     tcp_keepidle)
+--- websockify-0.8.0+dfsg1.orig/tests/test_websocket.py
++++ websockify-0.8.0+dfsg1/tests/test_websocket.py
+@@ -324,8 +324,9 @@ class WebSocketServerTestCase(unittest.T
+                              tcp_keepidle=keepidle,
+                              tcp_keepintvl=keepintvl)
+ 
+-        self.assertEqual(sock.getsockopt(socket.SOL_TCP,
+-                                         socket.TCP_KEEPCNT), keepcnt)
++        if hasattr(socket, 'TCP_KEEPCNT'):
++            self.assertEqual(sock.getsockopt(socket.SOL_TCP,
++                                             socket.TCP_KEEPCNT), keepcnt)
+         self.assertEqual(sock.getsockopt(socket.SOL_TCP,
+                                          socket.TCP_KEEPIDLE), keepidle)
+         self.assertEqual(sock.getsockopt(socket.SOL_TCP,
+@@ -337,8 +338,9 @@ class WebSocketServerTestCase(unittest.T
+                              tcp_keepidle=keepidle,
+                              tcp_keepintvl=keepintvl)
+ 
+-        self.assertNotEqual(sock.getsockopt(socket.SOL_TCP,
+-                                            socket.TCP_KEEPCNT), keepcnt)
++        if hasattr(socket, 'TCP_KEEPCNT'):
++            self.assertNotEqual(sock.getsockopt(socket.SOL_TCP,
++                                                socket.TCP_KEEPCNT), keepcnt)
+         self.assertNotEqual(sock.getsockopt(socket.SOL_TCP,
+                                             socket.TCP_KEEPIDLE), keepidle)
+         self.assertNotEqual(sock.getsockopt(socket.SOL_TCP,
