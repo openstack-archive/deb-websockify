@@ -1,4 +1,4 @@
 removes-websocket-swf-file.patch
 fixes-rebind-wrapper.patch
 mox3.patch
-TCP_KEEPCNT-not-available-in-non-linux.patch
+TCP_KEEPCNT-and-TCP_KEEPIDLE-not-available-in-non-linux.patch
