@@ -1,3 +1,9 @@
+websockify (0.8.0+dfsg1-7) unstable; urgency=medium
+
+  * 4th iteration of the non-linux TCP socket option patch.
+
+ -- Thomas Goirand <zigo@debian.org>  Tue, 11 Oct 2016 16:14:26 +0200
+
 websockify (0.8.0+dfsg1-6) unstable; urgency=medium
 
   * Fixes TCP_KEEPCNT-and-TCP_KEEPIDLE-not-available-in-non-linux.patch.

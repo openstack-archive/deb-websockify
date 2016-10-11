@@ -1,4 +1,4 @@
-Description: TCP_KEEPCNT and TCP_KEEPIDLE not available in non-linux platforms
+Description: TCP socket options not available on non-linux kernel
 Author: Thomas Goirand <zigo@debian.org>
 Bug-Debian: https://bugs.debian.org/840035
 Forwarded: no
@@ -6,7 +6,7 @@ Last-Update: 2016-10-11
 
 --- websockify-0.8.0+dfsg1.orig/tests/test_websocket.py
 +++ websockify-0.8.0+dfsg1/tests/test_websocket.py
-@@ -324,10 +324,12 @@ class WebSocketServerTestCase(unittest.T
+@@ -324,12 +324,16 @@ class WebSocketServerTestCase(unittest.T
                               tcp_keepidle=keepidle,
                               tcp_keepintvl=keepintvl)
  
@@ -14,16 +14,22 @@ Last-Update: 2016-10-11
 -                                         socket.TCP_KEEPCNT), keepcnt)
 -        self.assertEqual(sock.getsockopt(socket.SOL_TCP,
 -                                         socket.TCP_KEEPIDLE), keepidle)
+-        self.assertEqual(sock.getsockopt(socket.SOL_TCP,
+-                                         socket.TCP_KEEPINTVL), keepintvl)
 +        if hasattr(socket, 'TCP_KEEPCNT'):
 +            self.assertEqual(sock.getsockopt(socket.SOL_TCP,
 +                                             socket.TCP_KEEPCNT), keepcnt)
 +        if hasattr(socket, 'TCP_KEEPIDLE'):
 +           self.assertEqual(sock.getsockopt(socket.SOL_TCP,
 +                                            socket.TCP_KEEPIDLE), keepidle)
-         self.assertEqual(sock.getsockopt(socket.SOL_TCP,
-                                          socket.TCP_KEEPINTVL), keepintvl)
++        if hasattr(socket, 'TCP_KEEPINTVL'):
++           self.assertEqual(sock.getsockopt(socket.SOL_TCP,
++                                            socket.TCP_KEEPINTVL),
++                                            keepintvl)
  
-@@ -337,10 +339,12 @@ class WebSocketServerTestCase(unittest.T
+         sock = server.socket('localhost',
+                              tcp_keepalive=False,
+@@ -337,12 +341,16 @@ class WebSocketServerTestCase(unittest.T
                               tcp_keepidle=keepidle,
                               tcp_keepintvl=keepintvl)
  
@@ -31,18 +37,24 @@ Last-Update: 2016-10-11
 -                                            socket.TCP_KEEPCNT), keepcnt)
 -        self.assertNotEqual(sock.getsockopt(socket.SOL_TCP,
 -                                            socket.TCP_KEEPIDLE), keepidle)
+-        self.assertNotEqual(sock.getsockopt(socket.SOL_TCP,
+-                                            socket.TCP_KEEPINTVL), keepintvl)
 +        if hasattr(socket, 'TCP_KEEPCNT'):
 +            self.assertNotEqual(sock.getsockopt(socket.SOL_TCP,
 +                                                socket.TCP_KEEPCNT), keepcnt)
 +        if hasattr(socket, 'TCP_KEEPIDLE'):
 +           self.assertNotEqual(sock.getsockopt(socket.SOL_TCP,
 +                                               socket.TCP_KEEPIDLE), keepidle)
-         self.assertNotEqual(sock.getsockopt(socket.SOL_TCP,
-                                             socket.TCP_KEEPINTVL), keepintvl)
++        if hasattr(socket, 'TCP_KEEPINTVL');
++           self.assertNotEqual(sock.getsockopt(socket.SOL_TCP,
++                                               socket.TCP_KEEPINTVL),
++                                               keepintvl)
  
+ 
+ class HyBiEncodeDecodeTestCase(unittest.TestCase):
 --- websockify-0.8.0+dfsg1.orig/websockify/websocket.py
 +++ websockify-0.8.0+dfsg1/websockify/websocket.py
-@@ -723,11 +723,13 @@ class WebSocketServer(object):
+@@ -723,14 +723,17 @@ class WebSocketServer(object):
              if  tcp_keepalive:
                  sock.setsockopt(socket.SOL_SOCKET, socket.SO_KEEPALIVE, 1)
                  if tcp_keepcnt:
@@ -58,5 +70,11 @@ Last-Update: 2016-10-11
 +                       sock.setsockopt(socket.SOL_TCP, socket.TCP_KEEPIDLE,
 +                                       tcp_keepidle)
                  if tcp_keepintvl:
-                     sock.setsockopt(socket.SOL_TCP, socket.TCP_KEEPINTVL,
-                                     tcp_keepintvl)
+-                    sock.setsockopt(socket.SOL_TCP, socket.TCP_KEEPINTVL,
+-                                    tcp_keepintvl)
++                   if hasattr(socket, 'TCP_KEEPINTVL'):
++                      sock.setsockopt(socket.SOL_TCP, socket.TCP_KEEPINTVL,
++                                      tcp_keepintvl)
+ 
+             if connect:
+                 sock.connect(addrs[0][4])
