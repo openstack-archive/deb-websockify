@@ -3,7 +3,7 @@ Section: python
 Priority: optional
 Maintainer: PKG OpenStack <openstack-devel@lists.alioth.debian.org>
 Uploaders: Thomas Goirand <zigo@debian.org>,
-Build-Depends: debhelper (>= 9),
+Build-Depends: debhelper (>= 10),
                dh-python,
                openstack-pkg-tools,
                python-dev,
@@ -17,8 +17,8 @@ Build-Depends: debhelper (>= 9),
                python3-numpy,
                python3-setuptools,
 Standards-Version: 3.9.8
-Vcs-Browser: https://anonscm.debian.org/cgit/openstack/websockify.git/
-Vcs-Git: https://anonscm.debian.org/git/openstack/websockify.git
+Vcs-Browser: https://git.openstack.org/cgit/openstack/deb-websockify?h=debian%2Fnewton
+Vcs-Git: https://git.openstack.org/openstack/deb-websockify -b debian/newton
 Homepage: https://pypi.python.org/pypi/websockify
 
 Package: websockify-common
